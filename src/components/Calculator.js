@@ -15,24 +15,63 @@ const Grid = styled.div`
 `;
 
 export default function Calculator() {
+  const [firstNum, setFirstNum] = useState("");
+  const [secondNum, secondNum] = useState("");
+  const [nextPressed, setNextPressed] = useState(false);
+
+  console.log(firstNum);
+  console.log(secondNum);
+  console.log(NextHasBeenPressed);
+
+  function handleNumKeyPress(value) {
+    console.log(value + "has been pressed!");
+    if (!nextHasBeenPressed) {
+      setSecondNum(firstNum + value);
+    } else {
+      secondNum(secondNum + value);
+    }
+  }
+
+  function handleActionKeyPress(key) {
+    switch (key) {
+      case "next":
+        setNextHasBeenPressed(true);
+        break;
+      case "+":
+        console.log(key);
+        break;
+      case "-":
+        console.log(key);
+        break;
+      case "x":
+        console.log(key);
+        break;
+      case "/":
+        console.log(key);
+        break;
+
+      default:
+    }
+  }
+
   return (
     <Grid>
       <Display />
-      <NumberKey number={7} />
-      <NumberKey number={8} />
-      <NumberKey number={9} />
-      <ActionKey action={"/"} />
-      <NumberKey number={4} />
-      <NumberKey number={5} />
+      <NumberKey number={7} onNumKeyPress={handleNumKeyPress} />
+      <NumberKey number={8} onNumKeyPress={handleNumKeyPress} />
+      <NumberKey number={9} onNumKeyPress={handleNumKeyPress} />
+      <ActionKey action={"/"} onActionPressKey={handleActionKeyPress} />
+      <NumberKey number={4} onNumKeyPress={handleNumKeyPress} />
+      <NumberKey number={5} onNumKeyPress={handleNumKeyPress} />
       <NumberKey number={6} />
-      <ActionKey action={"x"} />
-      <NumberKey number={1} />
-      <NumberKey number={2} />
-      <NumberKey number={3} />
-      <ActionKey action={"-"} />
-      <NumberKey number={0} />
-      <ActionKey action={"+"} />
-      <ActionKey action={"next"} />
+      <ActionKey action={"x"} onActionPressKey={handleActionKeyPress} />
+      <NumberKey number={1} onNumKeyPress={handleNumKeyPress} />
+      <NumberKey number={2} onNumKeyPress={handleNumKeyPress} />
+      <NumberKey number={3} onNumKeyPress={handleNumKeyPress} />
+      <ActionKey action={"-"} onActionPressKey={handleActionKeyPress} />
+      <NumberKey number={0} onNumKeyPress={handleNumKeyPress} />
+      <ActionKey action={"+"} onActionPressKey={handleActionKeyPress} />
+      <ActionKey action={"next"} onActionPressKey={handleActionKeyPress} />
     </Grid>
   );
 }
