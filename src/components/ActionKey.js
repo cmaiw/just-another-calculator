@@ -18,8 +18,8 @@ const Key = styled.button`
 `;
 
 export default function ActionKey({ action }) {
-  let span = "";
-  if (action === "=") {
+  let span = "span1";
+  if (action === "next") {
     span = "span 4";
   }
   return <Key span={span}>{action}</Key>;
